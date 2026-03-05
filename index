@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mingo Mountain Woodworking | Bespoke Custom Cabinetry | Inland Northwest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f1eb;
+      --warm-white: #faf7f2;
+      --charcoal: #1e1b17;
+      --dark-brown: #12100e;
+      --mid-grey: #6a6158;
+      --light-grey: #b0a89e;
+      --border: #e0d9cf;
+      --gold: #a8865a;
+      --gold-light: #c9a87a;
+      --gold-pale: #e8d5b5;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--charcoal); overflow-x: hidden; }
+
+    /* ANNOUNCEMENT */
+    .announcement-bar {
+      background: var(--charcoal); color: var(--gold-pale);
+      text-align: center; padding: 11px 24px;
+      font-size: 10.5px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 300;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(250,247,242,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border); transition: box-shadow 0.3s;
+    }
+    header.scrolled { box-shadow: 0 2px 24px rgba(30,27,23,0.08); }
+
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 52px; height: 74px; max-width: 1560px; margin: 0 auto;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--charcoal);
+      text-decoration: none; white-space: nowrap; line-height: 1.3;
+    }
+    .logo-accent {
+      display: block; font-size: 9px; letter-spacing: 0.35em; color: var(--gold);
+      font-family: 'Jost', sans-serif; font-weight: 300; margin-top: 2px;
+    }
+
+    nav { display: flex; gap: 38px; align-items: center; }
+    .nav-link {
+      font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-weight: 300; color: var(--charcoal); text-decoration: none;
+      position: relative; transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--gold); transition: width 0.35s ease;
+    }
+    .nav-link:hover { color: var(--gold); }
+    .nav-link:hover::after { width: 100%; }
+
+    .nav-cta {
+      font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase;
+      font-weight: 400; color: var(--warm-white); background: var(--charcoal);
+      padding: 11px 26px; text-decoration: none; transition: background 0.3s, color 0.3s; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--charcoal); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 1px; background: var(--charcoal); }
+
+    /* MOBILE NAV */
+    .mobile-nav {
+      display: none; position: fixed; inset: 0; background: var(--charcoal);
+      z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 36px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300;
+      letter-spacing: 0.06em; color: #fff; text-decoration: none; transition: color 0.3s;
+    }
+    .mobile-nav a:hover { color: var(--gold-light); }
+    .mobile-close {
+      position: absolute; top: 28px; right: 36px; font-size: 28px; color: rgba(255,255,255,0.6);
+      cursor: pointer; background: none; border: none; font-family: 'Jost', sans-serif; transition: color 0.3s;
+    }
+    .mobile-close:hover { color: var(--gold-light); }
+
+    /* HERO */
+    .hero { position: relative; height: 94vh; min-height: 580px; overflow: hidden; display: flex; align-items: flex-end; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(160deg, rgba(30,27,23,0.1) 0%, rgba(30,27,23,0.62) 100%),
+        url('https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1739472004377-60VPJ7BOHXKSAJT7QW5J/18-5308+N+Indian+Bluff+Rd+018.jpg') center/cover no-repeat;
+      transform: scale(1.05); animation: heroZoom 14s ease-out forwards;
+    }
+    @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.00); } }
+
+    .hero-content {
+      position: relative; z-index: 2; padding: 0 80px 90px; max-width: 820px;
+      animation: fadeUp 1.2s 0.4s ease both;
+    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+
+    .eyebrow {
+      display: flex; align-items: center; gap: 16px;
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold-pale); font-weight: 300; margin-bottom: 22px;
+    }
+    .eyebrow::before { content: ''; display: block; width: 44px; height: 1px; background: var(--gold-light); flex-shrink: 0; }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(50px, 6.5vw, 96px); font-weight: 300; color: #fff;
+      line-height: 1.06; letter-spacing: 0.015em; margin-bottom: 28px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-pale); }
+
+    .hero-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.78); line-height: 1.9; margin-bottom: 42px; max-width: 500px; }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block; font-size: 10px; letter-spacing: 0.24em;
+      text-transform: uppercase; font-weight: 400; text-decoration: none; padding: 14px 34px; transition: all 0.3s;
+    }
+    .btn-gold { background: var(--gold); color: #fff; }
+    .btn-gold:hover { background: var(--gold-light); color: var(--charcoal); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.45); color: #fff; }
+    .btn-ghost:hover { border-color: var(--gold); background: rgba(168,134,90,0.18); }
+    .btn-dark { background: var(--charcoal); color: #fff; }
+    .btn-dark:hover { background: var(--gold); }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--charcoal); display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .trust-item {
+      display: flex; align-items: center; gap: 14px; padding: 22px 48px;
+      color: rgba(255,255,255,0.65); font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase; font-weight: 300;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+    /* UTILITY */
+    .section-wrap { max-width: 1400px; margin: 0 auto; padding: 110px 52px; }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); font-weight: 400; margin-bottom: 18px;
+    }
+    .tag::before { content: ''; display: block; width: 34px; height: 1px; background: var(--gold); }
+
+    h2.display {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4.2vw, 58px); font-weight: 300;
+      line-height: 1.12; letter-spacing: 0.02em; color: var(--charcoal);
+    }
+    h2.display em { font-style: italic; color: var(--gold); }
+
+    .body-copy { font-size: 14px; font-weight: 300; line-height: 1.95; color: var(--mid-grey); }
+
+    a.arrow-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      font-weight: 400; color: var(--charcoal); text-decoration: none; transition: gap 0.3s, color 0.3s;
+    }
+    a.arrow-link::after { content: '→'; font-size: 13px; }
+    a.arrow-link:hover { color: var(--gold); gap: 16px; }
+
+    /* INTRO SPLIT */
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+    .intro-image-wrap { position: relative; height: 620px; }
+    .intro-img-main { position: absolute; top: 0; left: 0; width: 78%; height: 88%; object-fit: cover; display: block; }
+    .intro-img-accent { position: absolute; bottom: 0; right: 0; width: 52%; height: 50%; object-fit: cover; display: block; border: 10px solid var(--warm-white); }
+    .intro-text { padding-right: 20px; }
+    .intro-text .body-copy { margin: 28px 0 16px; max-width: 500px; }
+
+    .stat-row { display: flex; gap: 48px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-grey); margin-top: 7px; font-weight: 300; }
+
+    /* COLLECTIONS */
+    .collections-section { background: var(--cream); }
+    .collections-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; gap: 32px; flex-wrap: wrap; }
+    .collections-header-text { max-width: 480px; }
+
+    .collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+
+    .col-card { position: relative; overflow: hidden; cursor: pointer; background: #c8bfb2; }
+    .col-card.tall { grid-row: span 2; }
+    .col-card img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 260px; transition: transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .col-card.tall img { min-height: 523px; }
+    .col-card:hover img { transform: scale(1.06); }
+    .col-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,16,14,0.78) 0%, transparent 52%);
+      transition: background 0.4s;
+    }
+    .col-card:hover .col-overlay { background: linear-gradient(to top, rgba(20,16,14,0.88) 0%, rgba(20,16,14,0.2) 58%); }
+    .col-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 26px 28px; color: #fff; }
+    .col-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; letter-spacing: 0.04em; margin-bottom: 5px; }
+    .col-card.tall .col-name { font-size: 30px; }
+    .col-cta {
+      font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-pale); font-weight: 300;
+      opacity: 0; transform: translateY(8px); transition: opacity 0.35s, transform 0.35s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .col-cta::after { content: '→'; font-size: 12px; }
+    .col-card:hover .col-cta { opacity: 1; transform: translateY(0); }
+
+    /* DARK FEATURE SPLIT */
+    .feature-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 700px; }
+    .feature-image { position: relative; overflow: hidden; }
+    .feature-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s ease; }
+    .feature-image:hover img { transform: scale(1.04); }
+    .feature-text { background: var(--charcoal); display: flex; align-items: center; padding: 88px 76px; }
+    .feature-text-inner { max-width: 460px; }
+    .feature-text .tag { color: var(--gold-light); }
+    .feature-text .tag::before { background: var(--gold); }
+    .feature-text h2.display { color: #fff; }
+    .feature-text .body-copy { color: rgba(255,255,255,0.62); margin: 26px 0 36px; }
+    .pull-quote {
+      font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic;
+      font-weight: 300; color: var(--gold-pale); line-height: 1.7;
+      padding-left: 22px; border-left: 2px solid var(--gold); margin: 32px 0;
+    }
+    .feature-text a.arrow-link { color: var(--gold-pale); }
+    .feature-text a.arrow-link:hover { color: var(--gold-light); }
+
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 64px; }
+    .service-card {
+      padding: 48px 40px; background: var(--cream);
+      border-top: 2px solid transparent; transition: border-color 0.3s, background 0.3s; cursor: default;
+    }
+    .service-card:hover { border-color: var(--gold); background: #fff; }
+    .service-number { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 20px; transition: color 0.3s; }
+    .service-card:hover .service-number { color: var(--gold-pale); }
+    .service-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--charcoal); margin-bottom: 14px; }
+    .service-desc { font-size: 13px; font-weight: 300; line-height: 1.85; color: var(--mid-grey); }
+
+    /* FULL BANNER */
+    .full-banner { position: relative; height: 560px; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .full-banner-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(rgba(20,16,14,0.62), rgba(20,16,14,0.62)),
+        url('https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1657813648787-VQ2G5BH9AMQGUF7L6L8H/Matthews+Wide+Perspective-1.jpg') center/cover no-repeat;
+      transition: transform 0.6s ease;
+    }
+    .full-banner:hover .full-banner-bg { transform: scale(1.02); }
+    .full-banner-content { position: relative; z-index: 2; color: #fff; max-width: 700px; padding: 0 40px; }
+    .full-banner-content .tag { justify-content: center; color: var(--gold-pale); }
+    .full-banner-content .tag::before { display: none; }
+    .banner-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 68px); font-weight: 300; line-height: 1.1; margin: 16px 0 26px; color: #fff; }
+    .banner-title em { font-style: italic; color: var(--gold-pale); }
+    .banner-sub { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.85; margin-bottom: 42px; }
+
+    /* PROCESS */
+    .process-section { background: var(--cream); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 64px; }
+    .process-step { padding: 48px 36px; background: #fff; position: relative; overflow: hidden; }
+    .process-step::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+    }
+    .process-step:hover::before { transform: scaleX(1); }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--gold-pale); line-height: 1; margin-bottom: 20px; }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; color: var(--charcoal); margin-bottom: 14px; }
+    .step-desc { font-size: 13px; font-weight: 300; line-height: 1.85; color: var(--mid-grey); }
+
+    /* ROOMS */
+    .rooms-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .room-card { position: relative; height: 580px; overflow: hidden; cursor: pointer; }
+    .room-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+    .room-card:hover img { transform: scale(1.05); }
+    .room-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,16,14,0.82) 0%, transparent 55%); }
+    .room-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 52px; color: #fff; }
+    .room-content .tag { color: var(--gold-light); }
+    .room-content .tag::before { background: var(--gold-light); }
+    .room-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300; margin: 14px 0 16px; line-height: 1.1; }
+    .room-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.85; margin-bottom: 26px; max-width: 380px; }
+
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
+    .team-image { position: relative; height: 520px; overflow: hidden; }
+    .team-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .team-image-badge { position: absolute; bottom: 32px; right: 32px; background: var(--charcoal); color: #fff; padding: 20px 28px; text-align: center; }
+    .badge-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--gold-light); line-height: 1; }
+    .badge-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 6px; }
+    .team-text .body-copy { margin: 24px 0 16px; }
+    .team-members { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; padding-top: 36px; border-top: 1px solid var(--border); }
+    .team-member-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; color: var(--charcoal); }
+    .team-member-role { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 300; margin-top: 5px; }
+
+    /* NEWSLETTER */
+    .newsletter { background: var(--charcoal); text-align: center; padding: 90px 52px; }
+    .newsletter .tag { justify-content: center; color: var(--gold-light); }
+    .newsletter .tag::before { display: none; }
+    .newsletter h2.display { color: #fff; margin: 12px auto 18px; max-width: 540px; }
+    .newsletter .body-copy { color: rgba(255,255,255,0.55); margin: 0 auto 40px; max-width: 420px; }
+    .nl-form { display: flex; max-width: 460px; margin: 0 auto; }
+    .nl-form input {
+      flex: 1; padding: 14px 20px; background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.18); border-right: none; color: #fff;
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300; outline: none; transition: border-color 0.3s;
+    }
+    .nl-form input::placeholder { color: rgba(255,255,255,0.35); }
+    .nl-form input:focus { border-color: var(--gold); }
+    .nl-form button {
+      padding: 14px 28px; background: var(--gold); color: var(--charcoal); border: none;
+      font-family: 'Jost', sans-serif; font-size: 9.5px; letter-spacing: 0.22em;
+      text-transform: uppercase; font-weight: 400; cursor: pointer; transition: background 0.3s; white-space: nowrap;
+    }
+    .nl-form button:hover { background: var(--gold-light); }
+
+    /* FOOTER */
+    footer { background: var(--dark-brown); padding: 76px 52px 44px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 52px;
+      max-width: 1400px; margin: 0 auto 64px; padding-bottom: 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 20px; }
+    .footer-brand-desc { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.42); line-height: 1.85; max-width: 280px; margin-bottom: 28px; }
+    .footer-contact { font-size: 11.5px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 2.1; }
+    .footer-contact a { color: var(--gold); text-decoration: none; }
+    .footer-col h4 { font-size: 9.5px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 400; margin-bottom: 22px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 11px; }
+    .footer-col ul a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.28); letter-spacing: 0.08em; }
+    .footer-legal { display: flex; gap: 28px; }
+    .footer-legal a { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.28); text-decoration: none; letter-spacing: 0.08em; transition: color 0.3s; }
+    .footer-legal a:hover { color: var(--gold); }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.22s; }
+    .reveal-d3 { transition-delay: 0.34s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .intro-grid { grid-template-columns: 1fr; gap: 56px; }
+      .intro-image-wrap { height: 420px; }
+      .feature-split { grid-template-columns: 1fr; }
+      .feature-image { height: 440px; }
+      .feature-text { padding: 72px 52px; }
+      .rooms-split { grid-template-columns: 1fr; }
+      .room-card { height: 460px; }
+      .team-grid { grid-template-columns: 1fr; gap: 48px; }
+      .team-image { height: 380px; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .header-inner { padding: 0 28px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { padding: 0 32px 64px; }
+      .section-wrap { padding: 72px 28px; }
+      .collections-grid { grid-template-columns: 1fr 1fr; }
+      .col-card.tall { grid-row: span 1; }
+      .col-card.tall img { min-height: 260px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .trust-item { padding: 18px 24px; }
+    }
+    @media (max-width: 560px) {
+      .collections-grid, .rooms-split, .process-steps, .footer-grid { grid-template-columns: 1fr; }
+      .trust-bar { flex-direction: column; }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); width: 100%; justify-content: center; }
+      .stat-row { gap: 28px; }
+    }
+
+    /* CONTACT FORM */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-detail {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-detail-label {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .contact-detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--charcoal);
+      text-decoration: none;
+      line-height: 1.4;
+      display: block;
+      transition: color 0.3s;
+    }
+
+    a.contact-detail-value:hover { color: var(--gold); }
+
+    .contact-form-wrap {
+      background: #fff;
+      padding: 52px;
+      border-top: 2px solid var(--gold);
+    }
+
+    .contact-form-header { margin-bottom: 36px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group { margin-bottom: 22px; }
+
+    .form-label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--mid-grey);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      color: var(--charcoal);
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--gold);
+      background: #fff;
+    }
+
+    .form-select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a8865a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .form-textarea {
+      min-height: 130px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px 32px;
+      background: var(--charcoal);
+      color: #fff;
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 10.5px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 400;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: var(--gold); }
+    .form-submit:disabled { background: var(--light-grey); cursor: not-allowed; }
+
+    .form-success-msg {
+      text-align: center;
+      padding: 52px 32px;
+    }
+
+    .form-success-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #fff;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .form-success-msg h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    .form-success-msg p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid-grey);
+      line-height: 1.8;
+    }
+
+    .form-success-msg a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+      .contact-form-wrap { padding: 36px 28px; }
+    }
+
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement-bar">
+    Handcrafted in Kettle Falls, Washington &nbsp;·&nbsp; Serving the Inland Northwest for Over 30 Years
+  </div>
+
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        Mingo Mountain
+        <span class="logo-accent">Woodworking</span>
+      </a>
+      <nav>
+        <a href="#collections" class="nav-link">Collections</a>
+        <a href="#craftsmanship" class="nav-link">Our Craft</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#team" class="nav-link">Our Team</a>
+        <a href="#contact" class="nav-cta">Contact Us</a>
+      </nav>
+      <div class="hamburger" id="hamburger" onclick="openMobileNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <button class="mobile-close" onclick="closeMobileNav()">✕</button>
+    <a href="#collections" onclick="closeMobileNav()">Collections</a>
+    <a href="#craftsmanship" onclick="closeMobileNav()">Our Craft</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#process" onclick="closeMobileNav()">Process</a>
+    <a href="#team" onclick="closeMobileNav()">Our Team</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Bespoke Custom Cabinetry</div>
+      <h1>Crafted by hand.<br><em>Built to last.</em></h1>
+      <p class="hero-desc">
+        At Mingo Mountain Woodworking, we design, build, and install finely crafted custom cabinets for the finest residences throughout the Inland Northwest. Every piece, a close collaboration between craftsman and client.
+      </p>
+      <div class="hero-actions">
+        <a href="#collections" class="btn btn-gold">View Our Work</a>
+        <a href="#contact" class="btn btn-ghost">Request a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">✦</span>30+ Years of Craftsmanship</div>
+    <div class="trust-item"><span class="trust-icon">✦</span>Design, Build &amp; Install</div>
+    <div class="trust-item"><span class="trust-icon">✦</span>Inland Northwest &amp; Beyond</div>
+    <div class="trust-item"><span class="trust-icon">✦</span>Work Directly With the Makers</div>
+  </div>
+
+  <!-- ABOUT / CRAFTSMANSHIP -->
+  <section id="craftsmanship">
+    <div class="section-wrap">
+      <div class="intro-grid">
+        <div class="intro-image-wrap reveal">
+          <img class="intro-img-main"
+            src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1657905936996-IUCKSNHNLHD9IJKID73T/Kitchen+wide+perspective-039.jpg"
+            alt="Classic Cherry kitchen by Mingo Mountain" />
+          <img class="intro-img-accent"
+            src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658864801451-V5YCLZBFEQ3B9I7RZPI6/H-08.jpg"
+            alt="Mingo Mountain kitchen detail" />
+        </div>
+        <div class="intro-text reveal reveal-d1">
+          <span class="tag">Our Philosophy</span>
+          <h2 class="display">A love of craft.<br><em>A lifetime of experience.</em></h2>
+          <p class="body-copy">
+            Mingo Mountain Woodworking was built on a simple conviction: that a kitchen, a room, a home, should be more than functional — it should be a work of art. Based in Kettle Falls, Washington, we have been producing finely crafted custom cabinetry for distinguished residences across the Inland Northwest for over thirty years.
+          </p>
+          <p class="body-copy" style="margin-top:16px;">
+            From the first design consultation through to the moment of final installation, you work directly with our expert cabinetmakers. No intermediaries. No compromises. Just skilled craftsmen who care deeply about every joint, finish, and fitting.
+          </p>
+          <a href="#team" class="arrow-link" style="margin-top:20px;display:inline-flex;">Meet Tom &amp; James</a>
+          <div class="stat-row">
+            <div>
+              <div class="stat-num">30<span style="font-size:28px">+</span></div>
+              <div class="stat-label">Years Together</div>
+            </div>
+            <div>
+              <div class="stat-num">18</div>
+              <div class="stat-label">Collections</div>
+            </div>
+            <div>
+              <div class="stat-num">5★</div>
+              <div class="stat-label">Rated Excellence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTIONS -->
+  <section id="collections" class="collections-section">
+    <div class="section-wrap">
+      <div class="collections-header">
+        <div class="collections-header-text reveal">
+          <span class="tag">Portfolio</span>
+          <h2 class="display" style="margin-top:14px;">Our <em>Collections</em></h2>
+        </div>
+        <div class="reveal reveal-d1">
+          <p class="body-copy" style="max-width:380px;margin-bottom:20px;">From contemporary mountain retreats to timeless traditional spaces — each project is a close collaboration, tailored precisely to your life and landscape.</p>
+          <a href="#contact" class="arrow-link">Start Your Project</a>
+        </div>
+      </div>
+
+      <div class="collections-grid">
+
+        <div class="col-card tall">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1739472004377-60VPJ7BOHXKSAJT7QW5J/18-5308+N+Indian+Bluff+Rd+018.jpg" alt="Contemporary" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Contemporary</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1657662625424-F92FTYVKRTIR0SKGIHHY/97+Web-.jpg" alt="Modern Industrial" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Modern Industrial</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1657813648787-VQ2G5BH9AMQGUF7L6L8H/Matthews+Wide+Perspective-1.jpg" alt="Beach Cabin" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Beach Cabin</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658869344663-SGUZEKO586SGZNFKW4G8/IMG_9968.jpg" alt="Riverside" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Riverside</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658864801451-V5YCLZBFEQ3B9I7RZPI6/H-08.jpg" alt="Sunrise" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Sunrise</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658859055969-52QQZ883AZX6SBV8JB8R/20140906_delsman_0662.jpg" alt="On The Bay" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">On The Bay</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658868544545-7YXRRDYLADNOWZF2CJIW/Jones+Wide+Perspective+1-0013.jpg" alt="Lake Cabin" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Lake Cabin</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658868086133-BRSM9RQT8QGLS047L39R/IMG_3698+-+Copy.JPG" alt="Mountain Artisan" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Mountain Artisan</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658865114649-3EU2JP1AUV57C2PQNG0L/20080807_0084.JPG" alt="Country Elegance" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Country Elegance</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card tall">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658870638622-YN786IVLFMI05PYRKI62/IMG_0001.JPG" alt="Traditional Beauty" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Traditional Beauty</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658868304450-B13570RTHVIM8LPHUMW4/20070213_0094.JPG" alt="Northwest Luxury" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Northwest Luxury</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658871050650-IHQTZR7DSQVUNPZBCR4E/3412_2.jpg" alt="Vintage" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Vintage</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658871435252-1XEDGPPFPJYV1TSD8WZ5/IMG_0089.JPG" alt="Huckleberry" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Huckleberry</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658861676716-UBEWGOOFT5EFCZHBMS9O/IMG_0456.JPG" alt="Refined Cherry" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Refined Cherry</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1657814044139-5ZL4T7G6R7Y8CILU71ZD/Nelson+Kitchen+Merge-+%28003%29.jpg" alt="White Shaker" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">White Shaker</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658871134266-OJ47QJLAJXQIYC8HCIES/IMG_1642.JPG" alt="Lakeside" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Lakeside</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658871948781-WTL6RV31XOSDSYI33691/IMG_0137.JPG" alt="Wildwood" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Wildwood</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+        <div class="col-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1657905936996-IUCKSNHNLHD9IJKID73T/Kitchen+wide+perspective-039.jpg" alt="Classic Cherry" loading="lazy"/>
+          <div class="col-overlay"></div>
+          <div class="col-info"><div class="col-name">Classic Cherry</div><div class="col-cta">View Collection</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DARK FEATURE -->
+  <section>
+    <div class="feature-split">
+      <div class="feature-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658868086133-BRSM9RQT8QGLS047L39R/IMG_3698+-+Copy.JPG" alt="Mountain Artisan kitchen" />
+      </div>
+      <div class="feature-text">
+        <div class="feature-text-inner reveal">
+          <span class="tag">The Mingo Mountain Difference</span>
+          <h2 class="display">From our hands<br><em>to your home.</em></h2>
+          <div class="pull-quote">"Our love of the craft and lifetime of experience shows through in every detail of our work."</div>
+          <p class="body-copy">
+            From start to finish of your project, you will be working directly with expert cabinetmakers. We take a fully hands-on approach — from initial design work, through every stage of construction, to the final moment of installation. Every piece is built in our Kettle Falls studio, nestled in the mountains of northeastern Washington.
+          </p>
+          <a href="#contact" class="arrow-link" style="margin-top:32px;display:inline-flex;">Arrange a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-wrap">
+      <div style="max-width:560px" class="reveal">
+        <span class="tag">What We Build</span>
+        <h2 class="display">Custom cabinetry<br><em>for every room.</em></h2>
+        <p class="body-copy" style="margin-top:22px;">Our expertise extends well beyond the kitchen. Any conceivable room within your home can be transformed with the finest handcrafted woodwork, designed to harmonise with your life.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-number">01</div>
+          <div class="service-title">Custom Kitchen Cabinets</div>
+          <p class="service-desc">The heart of your home, designed and built from scratch. We create kitchen cabinetry that is as functional as it is beautiful — from layout planning to final installation.</p>
+        </div>
+        <div class="service-card reveal reveal-d1">
+          <div class="service-number">02</div>
+          <div class="service-title">Custom Bathroom Vanities</div>
+          <p class="service-desc">Bespoke bathroom vanities crafted to your exact specifications, with your choice of wood species, finish, and hardware to create a truly personalised retreat.</p>
+        </div>
+        <div class="service-card reveal reveal-d2">
+          <div class="service-number">03</div>
+          <div class="service-title">Built-ins &amp; Bookcases</div>
+          <p class="service-desc">Custom built-in shelving, entertainment centers, and bookcases that maximise your space while adding genuine architectural beauty to any room in your home.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-number">04</div>
+          <div class="service-title">Home Bars &amp; Pantries</div>
+          <p class="service-desc">From custom home bars to fully fitted walk-in pantries — elegant storage solutions crafted with the same level of care as every other piece we produce.</p>
+        </div>
+        <div class="service-card reveal reveal-d1">
+          <div class="service-number">05</div>
+          <div class="service-title">Walk-in Closets</div>
+          <p class="service-desc">Walk-in closet systems and dressing rooms designed around your wardrobe and lifestyle, combining intelligent storage with refined, lasting aesthetics.</p>
+        </div>
+        <div class="service-card reveal reveal-d2">
+          <div class="service-number">06</div>
+          <div class="service-title">Custom Cabinet Doors</div>
+          <p class="service-desc">Handcrafted cabinet doors in any style — shaker, inset, raised panel, or fully bespoke — made to exact dimensions and specifications for any project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL BANNER -->
+  <section class="full-banner">
+    <div class="full-banner-bg"></div>
+    <div class="full-banner-content reveal">
+      <span class="tag">Inland Northwest</span>
+      <h2 class="banner-title">Serving the finest<br><em>residences in the region.</em></h2>
+      <p class="banner-sub">From Spokane and Coeur d'Alene to Hayden, Colville, and beyond — Mingo Mountain Woodworking has been the trusted name in bespoke cabinetry across the Inland Northwest for over three decades.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="#contact" class="btn btn-gold">Get In Touch</a>
+        <a href="#collections" class="btn btn-ghost">Explore the Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process-section">
+    <div class="section-wrap">
+      <div style="text-align:center;max-width:560px;margin:0 auto" class="reveal">
+        <span class="tag" style="justify-content:center;">How We Work</span>
+        <h2 class="display" style="margin-top:12px;">Our process,<br><em>your vision.</em></h2>
+        <p class="body-copy" style="margin-top:22px;">We believe the best work comes from close collaboration. Here is how we turn your vision into a finished piece you will have for life.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-title">Consultation</div>
+          <p class="step-desc">We begin with a conversation — learning about your space, your lifestyle, your tastes, and your goals. No pressure, no sales pitch. Just genuine listening.</p>
+        </div>
+        <div class="process-step reveal reveal-d1">
+          <div class="step-num">02</div>
+          <div class="step-title">Design</div>
+          <p class="step-desc">Together, we develop a plan that is both beautiful and functional — selecting materials, finishes, and details that reflect who you are and how you live.</p>
+        </div>
+        <div class="process-step reveal reveal-d2">
+          <div class="step-num">03</div>
+          <div class="step-title">Craftsmanship</div>
+          <p class="step-desc">Every piece is built by hand in our Kettle Falls studio. Tom and James personally oversee every stage of production, holding to the highest standards throughout.</p>
+        </div>
+        <div class="process-step reveal reveal-d3">
+          <div class="step-num">04</div>
+          <div class="step-title">Installation</div>
+          <p class="step-desc">We handle the entire installation ourselves — so you can be confident the finished result perfectly matches the vision, down to the very last detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS SPLIT -->
+  <section>
+    <div class="rooms-split">
+      <div class="room-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1657905936996-IUCKSNHNLHD9IJKID73T/Kitchen+wide+perspective-039.jpg" alt="Mingo Mountain kitchen" />
+        <div class="room-overlay"></div>
+        <div class="room-content">
+          <span class="tag">Custom Kitchens</span>
+          <div class="room-title">The heart<br>of your home.</div>
+          <p class="room-desc">Our custom kitchen cabinets are built around your life — your cooking habits, your entertaining style, your sense of beauty. Crafted in Kettle Falls, installed with pride.</p>
+          <a href="#collections" class="arrow-link" style="color:rgba(255,255,255,0.8);">View Kitchen Collections</a>
+        </div>
+      </div>
+      <div class="room-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1658868086133-BRSM9RQT8QGLS047L39R/IMG_3698+-+Copy.JPG" alt="Mingo Mountain whole home cabinetry" />
+        <div class="room-overlay"></div>
+        <div class="room-content">
+          <span class="tag">Whole-Home Cabinetry</span>
+          <div class="room-title">Every room,<br>considered.</div>
+          <p class="room-desc">From bathroom vanities to custom closets, media rooms to home offices — we bring the same level of craftsmanship to every space in your home.</p>
+          <a href="#services" class="arrow-link" style="color:rgba(255,255,255,0.8);">Explore All Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="section-wrap">
+      <div class="team-grid">
+        <div class="team-image reveal">
+          <img src="https://images.squarespace-cdn.com/content/v1/62cde8a17c51f76f100fdf05/1657662625424-F92FTYVKRTIR0SKGIHHY/97+Web-.jpg" alt="Mingo Mountain Woodworking studio" />
+          <div class="team-image-badge">
+            <div class="badge-num">30+</div>
+            <div class="badge-label">Years Together</div>
+          </div>
+        </div>
+        <div class="team-text reveal reveal-d1">
+          <span class="tag">The Craftsmen</span>
+          <h2 class="display">Partners in craft<br><em>for over 30 years.</em></h2>
+          <p class="body-copy">
+            Mingo Mountain Woodworking is owned by partners Tom Ediger and James Fish, who have been doing fine woodworking together for over 30 years. Their partnership is built on a shared obsession with quality, a deep respect for materials, and an unwavering commitment to every client they serve.
+          </p>
+          <p class="body-copy" style="margin-top:16px;">
+            Every project you commission is personally overseen by Tom and James — from the first design sketch to the final installation. When you work with Mingo Mountain, you work directly with the makers.
+          </p>
+          <div class="team-members">
+            <div>
+              <div class="team-member-name">Tom Ediger</div>
+              <div class="team-member-role">Partner &amp; Master Craftsman</div>
+            </div>
+            <div>
+              <div class="team-member-name">James Fish</div>
+              <div class="team-member-role">Partner &amp; Master Craftsman</div>
+            </div>
+          </div>
+          <a href="#contact" class="arrow-link" style="margin-top:36px;display:inline-flex;">Work With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <span class="tag">Stay Connected</span>
+    <h2 class="display">Receive news<br><em>from Mingo Mountain.</em></h2>
+    <p class="body-copy">Sign up to hear about new work, featured projects, and what is happening in our Kettle Falls studio.</p>
+    <form class="nl-form" onsubmit="handleNL(event)">
+      <input type="email" placeholder="Your email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--cream);">
+    <div class="section-wrap">
+
+      <!-- Top info strip -->
+      <div style="text-align:center;margin-bottom:72px;">
+        <span class="tag" style="justify-content:center;">Get In Touch</span>
+        <h2 class="display" style="margin:14px auto 22px;max-width:560px;">Ready to start your<br><em>next project?</em></h2>
+        <p class="body-copy" style="max-width:480px;margin:0 auto;">
+          Give us a call or send a message below. We would love to learn about your space and partner with you to create something extraordinary.
+        </p>
+      </div>
+
+      <!-- Contact layout: info left, form right -->
+      <div class="contact-grid">
+
+        <!-- Left: details -->
+        <div class="contact-info reveal">
+          <div class="contact-detail">
+            <div class="contact-detail-label">Phone</div>
+            <a href="tel:5097384380" class="contact-detail-value">(509) 738-4380</a>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-label">Studio</div>
+            <div class="contact-detail-value" style="font-size:20px;">1381 Mingo Mountain Rd<br>Kettle Falls, WA 99141</div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-label">Service Area</div>
+            <div class="contact-detail-value" style="font-size:18px;line-height:1.7;">Spokane · Coeur d'Alene<br>Hayden · Colville<br>Inland Northwest &amp; Beyond</div>
+          </div>
+          <div class="contact-detail" style="border-bottom:none;">
+            <div class="contact-detail-label">Hours</div>
+            <div class="contact-detail-value" style="font-size:18px;line-height:1.7;">Mon – Fri: 8am – 5pm<br>By appointment on weekends</div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="contact-form-wrap reveal reveal-d1">
+          <div class="contact-form-header">
+            <span class="tag">Send a Message</span>
+            <p class="body-copy" style="margin-top:8px;">Fill in the form and we will be in touch within one business day.</p>
+          </div>
+
+          <!-- Formspree form — replace YOUR_FORM_ID after signing up at formspree.io -->
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            onsubmit="handleContactSubmit(event)"
+          >
+            <!-- Hidden field so Formspree knows where to send it -->
+            <input type="hidden" name="_replyto" value="russ@mmww.co" />
+            <input type="hidden" name="_subject" value="New enquiry from Mingo Mountain website" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name *</label>
+                <input class="form-input" type="text" name="first_name" placeholder="Tom" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name *</label>
+                <input class="form-input" type="text" name="last_name" placeholder="Smith" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input class="form-input" type="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input class="form-input" type="tel" name="phone" placeholder="(509) 000-0000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Project Type</label>
+              <select class="form-input form-select" name="project_type">
+                <option value="" disabled selected>Select a project type…</option>
+                <option>Custom Kitchen Cabinets</option>
+                <option>Bathroom Vanity</option>
+                <option>Built-ins &amp; Bookcases</option>
+                <option>Home Bar or Pantry</option>
+                <option>Walk-in Closet</option>
+                <option>Cabinet Doors Only</option>
+                <option>Whole-Home Cabinetry</option>
+                <option>Other / Not Sure Yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tell Us About Your Project *</label>
+              <textarea class="form-input form-textarea" name="message" placeholder="Describe your space, style preferences, timeline, or anything else you'd like us to know…" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">How did you hear about us?</label>
+              <select class="form-input form-select" name="referral">
+                <option value="" disabled selected>Select one…</option>
+                <option>Google Search</option>
+                <option>Word of Mouth / Referral</option>
+                <option>Houzz</option>
+                <option>Social Media</option>
+                <option>Returning Customer</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <button type="submit" class="form-submit" id="form-submit-btn">
+              Send Enquiry
+            </button>
+
+          </form>
+
+          <!-- Success message (hidden by default) -->
+          <div id="form-success" style="display:none;" class="form-success-msg">
+            <div class="form-success-icon">✓</div>
+            <h3>Thank you for reaching out.</h3>
+            <p>We have received your message and will be in touch within one business day. We look forward to learning more about your project.</p>
+            <p style="margin-top:12px;">In the meantime, feel free to call us at <a href="tel:5097384380">(509) 738-4380</a>.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="footer-logo">Mingo Mountain Woodworking</a>
+        <p class="footer-brand-desc">Designing, building, and installing finely crafted custom cabinets for the finest residences throughout the Inland Northwest. Handcrafted in Kettle Falls, Washington since the 1990s.</p>
+        <div class="footer-contact">
+          <div>1381 Mingo Mountain Rd, Kettle Falls, WA 99141</div>
+          <div><a href="tel:5097384380">(509) 738-4380</a></div>
+          <div>License #MINGOMW988BA</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#collections">Contemporary</a></li>
+          <li><a href="#collections">Modern Industrial</a></li>
+          <li><a href="#collections">Northwest Luxury</a></li>
+          <li><a href="#collections">Mountain Artisan</a></li>
+          <li><a href="#collections">Classic Cherry</a></li>
+          <li><a href="#collections">Traditional Beauty</a></li>
+          <li><a href="#collections">View All 18 Collections →</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Custom Kitchens</a></li>
+          <li><a href="#services">Bathroom Vanities</a></li>
+          <li><a href="#services">Built-ins &amp; Bookcases</a></li>
+          <li><a href="#services">Custom Home Bars</a></li>
+          <li><a href="#services">Walk-in Closets</a></li>
+          <li><a href="#services">Pantry Design</a></li>
+          <li><a href="#services">Cabinet Doors</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#team">Tom &amp; James</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#craftsmanship">Our Philosophy</a></li>
+          <li><a href="#collections">Gallery</a></li>
+          <li><a href="https://www.mingomountainwoodworking.com/featured" target="_blank">Featured Work</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Mingo Mountain Woodworking Inc. Kettle Falls, Washington.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="https://www.mingomountainwoodworking.com" target="_blank">Original Site</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    function openMobileNav() {
+      document.getElementById('mobile-nav').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileNav() {
+      document.getElementById('mobile-nav').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    function handleNL(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const orig = btn.textContent;
+      btn.textContent = 'Thank you!';
+      btn.style.background = '#4a7c59';
+      btn.style.color = '#fff';
+      e.target.querySelector('input').value = '';
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 3500);
+    }
+
+    // Contact form — submits to Formspree, shows success message
+    async function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const btn = document.getElementById('form-submit-btn');
+      const successMsg = document.getElementById('form-success');
+
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        } else {
+          const data = await response.json();
+          const errorMsg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Something went wrong. Please try again or call us directly.';
+          alert(errorMsg);
+          btn.textContent = 'Send Enquiry';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        alert('Unable to send. Please call us at (509) 738-4380 or email russ@mmww.co directly.');
+        btn.textContent = 'Send Enquiry';
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>
