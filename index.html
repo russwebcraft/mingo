@@ -388,12 +388,15 @@
       -webkit-user-select: none;
       user-select: none;
       -webkit-touch-callout: none;
-      pointer-events: none;
     }
-    /* Re-enable pointer events on clickable cards (the card handles the click, not the img) */
-    .col-card, .coll-page-card, .gallery-item, .featured-card, .room-card,
-    .feature-image, .intro-image-wrap, .bio-image, .team-image {
-      pointer-events: auto;
+    /* Transparent overlay on all image containers to block right-click targeting */
+    .col-card::after, .coll-page-card::after, .gallery-item::after,
+    .featured-card::after, .room-card::after, .feature-image::after,
+    .bio-image::after, .team-image::after, .intro-img-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
     }
 
   </style>
@@ -1700,7 +1703,6 @@ function protectImages() {
     img.setAttribute('draggable', 'false');
     img.style.webkitUserSelect = 'none';
     img.style.userSelect = 'none';
-    img.style.pointerEvents = 'none';
   });
 }
 
