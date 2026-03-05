@@ -383,19 +383,6 @@
       .about-values{grid-template-columns:1fr}
       .team-bios{grid-template-columns:1fr}
     }
-    /* IMAGE PROTECTION */
-    img {
-      -webkit-user-select: none;
-      user-select: none;
-      -webkit-touch-callout: none;
-      pointer-events: none;
-    }
-    /* Re-enable pointer events on clickable cards (the card handles the click, not the img) */
-    .col-card, .coll-page-card, .gallery-item, .featured-card, .room-card,
-    .feature-image, .intro-image-wrap, .bio-image, .team-image {
-      pointer-events: auto;
-    }
-
   </style>
 </head>
 <body>
@@ -1665,53 +1652,6 @@ buildFooterCollections();
 buildHomeCollectionsGrid();
 buildCollectionsPageGrid();
 initReveal();
-
-// ══════════════════════════════════════════
-// IMAGE PROTECTION
-// ══════════════════════════════════════════
-
-// 1 — Block right-click on the entire page
-document.addEventListener('contextmenu', function(e) {
-  if (e.target.tagName === 'IMG' || e.target.closest('.gallery-item, .col-card, .coll-page-card, .featured-card, .room-card, .hero, .page-hero, .feature-image, .intro-image-wrap, .bio-image, .team-image')) {
-    e.preventDefault();
-    return false;
-  }
-});
-
-// 2 — Block drag-and-drop on all images
-document.addEventListener('dragstart', function(e) {
-  if (e.target.tagName === 'IMG') {
-    e.preventDefault();
-    return false;
-  }
-});
-
-// 3 — Disable long-press save on mobile (iOS/Android)
-document.addEventListener('touchstart', function(e) {
-  if (e.target.tagName === 'IMG') {
-    e.target.style.webkitUserSelect = 'none';
-    e.target.style.userSelect = 'none';
-  }
-}, { passive: true });
-
-// 4 — Apply CSS protection to all images via JS after load
-function protectImages() {
-  document.querySelectorAll('img').forEach(img => {
-    img.setAttribute('draggable', 'false');
-    img.style.webkitUserSelect = 'none';
-    img.style.userSelect = 'none';
-    img.style.pointerEvents = 'none';
-  });
-}
-
-// Re-run protection whenever a new page loads (since gallery images are injected dynamically)
-const _origNavigate = navigate;
-window.navigate = function(page, collectionId) {
-  _origNavigate(page, collectionId);
-  setTimeout(protectImages, 200);
-};
-
-protectImages();
 </script>
 </body>
 </html>
