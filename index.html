@@ -304,9 +304,12 @@
     .value-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--charcoal);margin-bottom:12px}
     .value-desc{font-size:13px;font-weight:300;line-height:1.85;color:var(--mid-grey)}
     .team-bios{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:80px}
-    .bio-image{height:520px;overflow:hidden;margin-bottom:28px}
-    .bio-image img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .7s ease}
+    .bio-image{height:640px;overflow:hidden;margin-bottom:28px;background:var(--cream)}
+    .bio-image img{width:100%;height:100%;object-fit:contain;object-position:center top;display:block;transition:transform .7s ease}
     .bio-image:hover img{transform:scale(1.04)}
+    .crew-image{height:520px;overflow:hidden;margin-bottom:16px}
+    .crew-image img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .7s ease}
+    .crew-image:hover img{transform:scale(1.04)}
     .bio-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--charcoal);margin-bottom:6px}
     .bio-role{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:20px}
     .bio-text{font-size:14px;font-weight:300;line-height:1.95;color:var(--mid-grey)}
@@ -349,7 +352,7 @@
       .feature-text{padding:72px 52px}
       .room-card{height:460px}
       .team-image{height:380px}
-      .bio-image{height:380px}
+      .bio-image{height:480px}
       .process-steps{grid-template-columns:repeat(2,1fr)}
       .about-values{grid-template-columns:1fr 1fr}
       .featured-grid{grid-template-columns:1fr}
@@ -492,7 +495,7 @@
           <button onclick="navigate('team')" style="all:unset;cursor:pointer;"><a class="arrow-link" style="margin-top:20px;display:inline-flex;">Meet James &amp; Russ</a></button>
           <div class="stat-row">
             <div><div class="stat-num">30<span style="font-size:28px">+</span></div><div class="stat-label">Years of Craft</div></div>
-            <div><div class="stat-num">18</div><div class="stat-label">Collections</div></div>
+            <div><div class="stat-num">19</div><div class="stat-label">Collections</div></div>
             <div><div class="stat-num">1</div><div class="stat-label">Shop</div></div>
           </div>
         </div>
@@ -592,7 +595,7 @@
     <div class="page-hero-bg" style="background-image:url('https://russwebcraft.github.io/mingo/images/Contemporary/1.jpg')"></div>
     <div class="page-hero-content">
       <div class="eyebrow">Our Portfolio</div>
-      <h1>18 <em>Collections</em></h1>
+      <h1>19 <em>Collections</em></h1>
     </div>
   </div>
   <div class="breadcrumb"><div class="breadcrumb-inner"><span onclick="navigate('home')">Home</span><span class="sep">/</span><span class="current">Collections</span></div></div>
@@ -660,7 +663,7 @@
     <div class="intro-grid">
       <div class="intro-image-wrap reveal">
         <img class="intro-img-main" src="https://russwebcraft.github.io/mingo/images/Misc/1.jpeg" alt="Arched walnut niche"/>
-        <img class="intro-img-accent" src="https://russwebcraft.github.io/mingo/images/Country%20Elegance/1.jpg" alt="Country Elegance"/>
+        <img class="intro-img-accent" src="https://russwebcraft.github.io/mingo/images/Gozzer/33.jpeg" alt="Gozzer Ranch detail"/>
       </div>
       <div class="reveal reveal-d1">
         <span class="tag">Our Commitment</span>
@@ -716,8 +719,11 @@
           <button onclick="navigate('contact')" style="all:unset;cursor:pointer;margin-top:32px;display:block"><a class="arrow-link" style="color:var(--gold-pale)">Visit or Call Us</a></button>
         </div>
       </div>
-      <div class="feature-image">
-        <img src="https://russwebcraft.github.io/mingo/images/Wildwood/1.webp" alt="Wildwood"/>
+      <div class="feature-image" style="position:relative;overflow:hidden">
+        <video autoplay muted loop playsinline
+               style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <source src="https://russwebcraft.github.io/mingo/images/Misc/tv.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </section>
@@ -805,7 +811,7 @@
 ═══════════════════════════════════════════════ -->
 <div class="page" id="page-process">
   <div class="page-hero">
-    <div class="page-hero-bg" style="background-image:url('https://russwebcraft.github.io/mingo/images/Refined%20Cherry/1.jpg')"></div>
+    <div class="page-hero-bg" style="background-image:url('https://russwebcraft.github.io/mingo/images/Gozzer/26.jpeg')"></div>
     <div class="page-hero-content">
       <div class="eyebrow">How We Work</div>
       <h1>Our Process,<br><em>Your Vision</em></h1>
@@ -887,7 +893,7 @@
 ═══════════════════════════════════════════════ -->
 <div class="page" id="page-team">
   <div class="page-hero">
-    <div class="page-hero-bg" style="background-image:url('https://russwebcraft.github.io/mingo/images/Modern%20Industrial/1.jpg')"></div>
+    <div class="page-hero-bg" style="background-image:url('https://russwebcraft.github.io/mingo/images/Misc/overhead.webp')"></div>
     <div class="page-hero-content">
       <div class="eyebrow">The Craftsmen</div>
       <h1>James &amp; Russ —<br><em>Father &amp; Son</em></h1>
@@ -903,21 +909,21 @@
     <div class="team-bios">
       <div class="reveal">
         <div class="bio-image">
-          <img src="https://russwebcraft.github.io/mingo/images/Staff/2.jpg" alt="Russ Fish"/>
-        </div>
-        <div class="bio-name">Russ Fish</div>
-        <div class="bio-role">Partner &amp; Craftsman</div>
-        <p class="bio-text" style="margin-top:16px">Russ Fish is the son of founder James Fish, and learned the trade working alongside his father in the Mingo Mountain shop. He has developed into a skilled craftsman and now leads the company as a second generation owner.</p>
-        <p class="bio-text" style="margin-top:12px">Russ brings fresh energy and a trained eye to every project, working in close collaboration with James to ensure that each kitchen, vanity, and built-in that leaves the shop meets the exacting standards that Mingo Mountain has always been known for.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <div class="bio-image">
-          <img src="https://russwebcraft.github.io/mingo/images/Staff/1.jpg" alt="James Fish"/>
+          <img src="https://russwebcraft.github.io/mingo/images/Staff/james.jpg" alt="James Fish"/>
         </div>
         <div class="bio-name">James Fish</div>
         <div class="bio-role">Founder &amp; Master Craftsman</div>
         <p class="bio-text" style="margin-top:16px">James Fish founded Mingo Mountain Woodworking after a career working across the full range of the building trades. Timber framing, general contracting, finish carpentry, trim work, and custom cabinetry. That breadth of experience shapes everything he builds.</p>
         <p class="bio-text" style="margin-top:12px">It is this depth of knowledge that sets Mingo Mountain apart. James approaches every cabinet project the way a builder approaches a structure: with a thorough understanding of how spaces work, how materials behave, and how the finest details come together to make something truly built to last.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="bio-image">
+          <img src="https://russwebcraft.github.io/mingo/images/Staff/russ.jpg" alt="Russ Fish"/>
+        </div>
+        <div class="bio-name">Russ Fish</div>
+        <div class="bio-role">Partner &amp; Craftsman</div>
+        <p class="bio-text" style="margin-top:16px">Russ Fish is the son of founder James Fish, and learned the trade working alongside his father in the Mingo Mountain shop. He has developed into a skilled craftsman and now leads the company as a second generation owner.</p>
+        <p class="bio-text" style="margin-top:12px">Russ brings fresh energy and a trained eye to every project, working in close collaboration with James to ensure that each kitchen, vanity, and built-in that leaves the shop meets the exacting standards that Mingo Mountain has always been known for.</p>
       </div>
     </div>
 
@@ -932,43 +938,51 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:40px;max-width:1100px;margin:0 auto">
 
         <div class="reveal" style="text-align:center">
-          <div class="bio-image" style="margin-bottom:16px">
-            <img src="https://russwebcraft.github.io/mingo/images/Staff/3.jpg" alt="Warren Barcellos"/>
+          <div class="crew-image">
+            <img src="https://russwebcraft.github.io/mingo/images/Staff/3.jpg" alt="Warren Barcellos" style="object-position:45% top"/>
           </div>
           <div class="bio-name">Warren Barcellos</div>
           <div class="bio-role">General Manager</div>
         </div>
 
         <div class="reveal reveal-d1" style="text-align:center">
-          <div class="bio-image" style="margin-bottom:16px">
-            <img src="https://russwebcraft.github.io/mingo/images/Staff/4.jpg" alt="Brian Tost"/>
+          <div class="crew-image">
+            <img src="https://russwebcraft.github.io/mingo/images/Staff/4.jpg" alt="Brian Tost" style="object-position:55% top"/>
           </div>
           <div class="bio-name">Brian Tost</div>
           <div class="bio-role">Spray Wizard</div>
         </div>
 
         <div class="reveal reveal-d2" style="text-align:center">
-          <div class="bio-image" style="margin-bottom:16px">
-            <img src="https://russwebcraft.github.io/mingo/images/Staff/5.jpg" alt="Miles Oliver"/>
+          <div class="crew-image">
+            <img src="https://russwebcraft.github.io/mingo/images/Staff/5.jpg" alt="Miles Oliver" style="object-position:center top"/>
           </div>
           <div class="bio-name">Miles Oliver</div>
           <div class="bio-role">Craftsman</div>
         </div>
 
         <div class="reveal reveal-d3" style="text-align:center">
-          <div class="bio-image" style="margin-bottom:16px">
-            <img src="https://russwebcraft.github.io/mingo/images/Staff/6.jpg" alt="Jerrad Jones"/>
+          <div class="crew-image">
+            <img src="https://russwebcraft.github.io/mingo/images/Staff/jerrad.jpg" alt="Jerrad Jones" style="object-position:45% top"/>
           </div>
           <div class="bio-name">Jerrad Jones</div>
           <div class="bio-role">Craftsman</div>
         </div>
 
         <div class="reveal reveal-d4" style="text-align:center">
-          <div class="bio-image" style="margin-bottom:16px">
-            <img src="https://russwebcraft.github.io/mingo/images/Staff/7.jpg" alt="Jake Cottrill"/>
+          <div class="crew-image">
+            <img src="https://russwebcraft.github.io/mingo/images/Staff/7.jpg" alt="Jake Cottrill" style="object-position:55% top"/>
           </div>
           <div class="bio-name">Jake Cottrill</div>
           <div class="bio-role">Craftsman</div>
+        </div>
+
+        <div class="reveal reveal-d5" style="text-align:center">
+          <div class="crew-image">
+            <img src="https://russwebcraft.github.io/mingo/images/Staff/6.jpg" alt="Craig Stafford" style="object-position:60% 25%"/>
+          </div>
+          <div class="bio-name">Craig Stafford</div>
+          <div class="bio-role">Apprentice</div>
         </div>
 
       </div>
@@ -1106,7 +1120,7 @@
   <div class="section-wrap" style="padding-top:0;padding-bottom:80px;text-align:center">
     <div class="reveal">
       <span class="tag">Our Work</span>
-      <h2 class="display" style="margin:12px auto 22px;max-width:500px">Browse all<br><em>18 collections.</em></h2>
+      <h2 class="display" style="margin:12px auto 22px;max-width:500px">Browse all<br><em>19 collections.</em></h2>
       <p class="body-copy" style="max-width:440px;margin:0 auto 36px">From contemporary kitchens to rustic cabin work, our collections span the full range of what handcrafted cabinetry can be.</p>
       <button class="btn btn-dark" onclick="navigate('collections')">View All Collections</button>
     </div>
@@ -1390,6 +1404,51 @@ const COLLECTIONS = [
     ]
   },
   {
+    id: 'gozzer',
+    name: 'Gozzer',
+    tagline: 'Crafted for the ranch.',
+    desc: 'The Gozzer collection was designed for one of the most coveted addresses in the Inland Northwest — a private retreat at Gozzer Ranch on Lake Coeur d\'Alene. Every detail speaks to the setting: rich grain-matched hardwoods, refined hardware, and a finish palette drawn from the surrounding timber and stone.',
+    cover: `${BASE}/Gozzer/1.jpeg`,
+    images: [
+      `${BASE}/Gozzer/1.jpeg`,
+      `${BASE}/Gozzer/2.jpeg`,
+      `${BASE}/Gozzer/3.jpeg`,
+      `${BASE}/Gozzer/4.jpeg`,
+      `${BASE}/Gozzer/5.jpeg`,
+      `${BASE}/Gozzer/6.jpeg`,
+      `${BASE}/Gozzer/7.jpeg`,
+      `${BASE}/Gozzer/8.jpeg`,
+      `${BASE}/Gozzer/9.jpeg`,
+      `${BASE}/Gozzer/10.jpeg`,
+      `${BASE}/Gozzer/11.jpeg`,
+      `${BASE}/Gozzer/12.jpeg`,
+      `${BASE}/Gozzer/13.jpeg`,
+      `${BASE}/Gozzer/14.jpeg`,
+      `${BASE}/Gozzer/15.jpeg`,
+      `${BASE}/Gozzer/16.jpeg`,
+      `${BASE}/Gozzer/17.jpeg`,
+      `${BASE}/Gozzer/18.jpeg`,
+      `${BASE}/Gozzer/19.jpeg`,
+      `${BASE}/Gozzer/20.jpeg`,
+      `${BASE}/Gozzer/21.jpeg`,
+      `${BASE}/Gozzer/22.jpeg`,
+      `${BASE}/Gozzer/23.jpeg`,
+      `${BASE}/Gozzer/24.jpeg`,
+      `${BASE}/Gozzer/25.jpeg`,
+      `${BASE}/Gozzer/26.jpeg`,
+      `${BASE}/Gozzer/27.jpeg`,
+      `${BASE}/Gozzer/28.jpeg`,
+      `${BASE}/Gozzer/29.jpeg`,
+      `${BASE}/Gozzer/30.jpeg`,
+      `${BASE}/Gozzer/31.jpeg`,
+      `${BASE}/Gozzer/32.jpeg`,
+      `${BASE}/Gozzer/33.jpeg`,
+      `${BASE}/Gozzer/34.jpeg`,
+      `${BASE}/Gozzer/35.jpeg`,
+      `${BASE}/Gozzer/36.jpeg`,
+    ]
+  },
+  {
     id: 'on-the-bay',
     name: 'On The Bay',
     tagline: 'Classic proportions with waterside ease.',
@@ -1645,7 +1704,7 @@ function buildFooterCollections() {
     const c = COLLECTIONS.find(x => x.id === id);
     return c ? `<li><button onclick="navigate('collection','${c.id}')">${c.name}</button></li>` : '';
   }).join('');
-  html += `<li><button onclick="navigate('collections')">View All 18 →</button></li>`;
+  html += `<li><button onclick="navigate('collections')">View All 19 →</button></li>`;
   ul.innerHTML = html;
 }
 
