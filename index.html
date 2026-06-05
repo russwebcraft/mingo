@@ -28,7 +28,9 @@
     header{position:sticky;top:0;z-index:200;background:rgba(250,247,242,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
     header.scrolled{box-shadow:0 2px 24px rgba(30,27,23,.08)}
     .header-inner{display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:74px;max-width:1560px;margin:0 auto}
-    .logo{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;white-space:nowrap;line-height:1.3;cursor:pointer}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;white-space:nowrap;line-height:1.3;cursor:pointer;display:flex;align-items:center;gap:12px}
+    .logo-img{height:42px;width:auto;display:block;flex-shrink:0}
+    .logo-text{display:flex;flex-direction:column}
     .logo-accent{display:block;font-size:9px;letter-spacing:.35em;color:var(--gold);font-family:'Jost',sans-serif;font-weight:300;margin-top:2px}
     nav{display:flex;gap:32px;align-items:center}
     .nav-link{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:300;color:var(--charcoal);text-decoration:none;position:relative;transition:color .3s;cursor:pointer;background:none;border:none;font-family:'Jost',sans-serif}
@@ -413,8 +415,11 @@
 <header id="site-header">
   <div class="header-inner">
     <div class="logo" onclick="navigate('home')">
-      Mingo Mountain
-      <span class="logo-accent">Woodworking</span>
+      <img class="logo-img" src="https://russwebcraft.github.io/mingo/images/Misc/logosquaretransbackcopy.png" alt="Mingo Mountain Woodworking"/>
+      <div class="logo-text">
+        Mingo Mountain
+        <span class="logo-accent">Woodworking</span>
+      </div>
     </div>
     <nav>
       <div class="nav-link has-dropdown">
@@ -719,8 +724,11 @@
           <button onclick="navigate('contact')" style="all:unset;cursor:pointer;margin-top:32px;display:block"><a class="arrow-link" style="color:var(--gold-pale)">Visit or Call Us</a></button>
         </div>
       </div>
-      <div class="feature-image">
-        <img src="https://russwebcraft.github.io/mingo/images/Misc/alles%20bath%201.jpeg" alt="Mingo Mountain craftsmanship"/>
+      <div class="feature-image" style="position:relative;overflow:hidden">
+        <video autoplay muted loop playsinline
+               style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <source src="https://russwebcraft.github.io/mingo/images/Misc/tv.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </section>
@@ -918,7 +926,7 @@
           <img src="https://russwebcraft.github.io/mingo/images/Staff/russ.jpg" alt="Russ Fish"/>
         </div>
         <div class="bio-name">Russ Fish</div>
-        <div class="bio-role">Owner &amp; Craftsman</div>
+        <div class="bio-role">Partner &amp; Craftsman</div>
         <p class="bio-text" style="margin-top:16px">Russ Fish is the son of founder James Fish, and learned the trade working alongside his father in the Mingo Mountain shop. He has developed into a skilled craftsman and now leads the company as a second generation owner.</p>
         <p class="bio-text" style="margin-top:12px">Russ brings fresh energy and a trained eye to every project, working in close collaboration with James to ensure that each kitchen, vanity, and built-in that leaves the shop meets the exacting standards that Mingo Mountain has always been known for.</p>
       </div>
@@ -936,7 +944,7 @@
 
         <div class="reveal" style="text-align:center">
           <div class="crew-image">
-            <img src="https://russwebcraft.github.io/mingo/images/Staff/3.jpg" alt="Warren Barcellos" style="object-position:center top"/>
+            <img src="https://russwebcraft.github.io/mingo/images/Staff/3.jpg" alt="Warren Barcellos" style="object-position:45% top"/>
           </div>
           <div class="bio-name">Warren Barcellos</div>
           <div class="bio-role">General Manager</div>
@@ -972,6 +980,14 @@
           </div>
           <div class="bio-name">Jake Cottrill</div>
           <div class="bio-role">Craftsman</div>
+        </div>
+
+        <div class="reveal reveal-d5" style="text-align:center">
+          <div class="crew-image">
+            <img src="https://russwebcraft.github.io/mingo/images/Staff/6.jpg" alt="Craig Stafford" style="object-position:60% 25%"/>
+          </div>
+          <div class="bio-name">Craig Stafford</div>
+          <div class="bio-role">Apprentice</div>
         </div>
 
       </div>
