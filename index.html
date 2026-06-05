@@ -1686,12 +1686,17 @@ function navigate(page, collectionId, fromHistory) {
 }
 
 window.addEventListener('popstate', function(e) {
-  if (e.state) {
-    if (e.state.page === 'collection' && e.state.collectionId) {
-      navigate('collection', e.state.collectionId, true);
-    } else if (e.state.page) {
-      navigate(e.state.page, null, true);
-    }
+  const state = e.state;
+  if (!state) {
+    navigate('home', null, true);
+    return;
+  }
+  if (state.page === 'collection' && state.collectionId) {
+    navigate('collection', state.collectionId, true);
+  } else if (state.page === 'home') {
+    navigate('home', null, true);
+  } else if (state.page) {
+    navigate(state.page, null, true);
   } else {
     navigate('home', null, true);
   }
@@ -1935,7 +1940,7 @@ buildCollectionsPageGrid();
 initReveal();
 
 // Seed initial history state so back button works from first page
-if (HISTORY_OK) history.replaceState({ page: 'home' }, '', '#home');
+if (HISTORY_OK) history.replaceState({ page: 'home', collectionId: null }, '', '#home');
 
 // ══════════════════════════════════════════
 // IMAGE PROTECTION
