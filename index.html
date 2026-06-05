@@ -1661,6 +1661,8 @@ const COLLECTIONS = [
 // ══════════════════════════════════════════
 let currentPage = 'home';
 
+const HISTORY_OK = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
+
 function navigate(page, collectionId, fromHistory) {
   // Hide all pages
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1669,14 +1671,14 @@ function navigate(page, collectionId, fromHistory) {
     loadCollection(collectionId);
     document.getElementById('page-collection').classList.add('active');
     currentPage = 'collection:' + collectionId;
-    if (!fromHistory) history.pushState({ page: 'collection', collectionId }, '', '#' + collectionId);
+    if (!fromHistory && HISTORY_OK) history.pushState({ page: 'collection', collectionId }, '', '#' + collectionId);
   } else {
     const el = document.getElementById('page-' + page);
     if (el) {
       el.classList.add('active');
       currentPage = page;
     }
-    if (!fromHistory) history.pushState({ page }, '', '#' + page);
+    if (!fromHistory && HISTORY_OK) history.pushState({ page }, '', '#' + page);
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1933,7 +1935,7 @@ buildCollectionsPageGrid();
 initReveal();
 
 // Seed initial history state so back button works from first page
-history.replaceState({ page: 'home' }, '', '#home');
+if (HISTORY_OK) history.replaceState({ page: 'home' }, '', '#home');
 
 // ══════════════════════════════════════════
 // IMAGE PROTECTION
